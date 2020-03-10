@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Services";
+
+package greet;
+
+service Connector {
+  rpc Send (stream Request) returns (stream Response);
+}
+
+message Request {
+  string type = 1;
+  repeated bytes data = 2;
+}
+
+message Response {
+  string type = 1;
+  repeated bytes data = 2;
+}
